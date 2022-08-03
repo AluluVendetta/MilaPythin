@@ -22,7 +22,7 @@ print("Done")
 
 myrepo = git.Repo.clone_from('https://github.com/AluluVendetta/MilaPythin', 'my_repo')
 # Provide a list of the files to stage
-repo.index.add(['./sample.txt'])
+repo.index.add(['sample.txt'])
 # Provide a commit message
 repo.index.commit('Initial commit.')
 alpha = 0.5
