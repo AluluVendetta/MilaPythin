@@ -15,8 +15,16 @@ import sys
 import re, urllib
 import os
 
+text_file = open("./sample.txt", "a")
+n = text_file.write('Welcome to pythonexamples.org')
+text_file.close()
+print("Done")
 
-git.Repo.clone_from('https://github.com/AluluVendetta/MilaPythin', 'Cookbook-https')
+myrepo = git.Repo.clone_from('https://github.com/AluluVendetta/MilaPythin', 'my_repo')
+# Provide a list of the files to stage
+repo.index.add(['./sample.txt'])
+# Provide a commit message
+repo.index.commit('Initial commit.')
 alpha = 0.5
 
 # Open the googleSheet that specifies difficulty of each sequence
@@ -718,10 +726,7 @@ def SMOTE(SyntSamples=15000):
     copytocsv(rread, "Synthetic")
     copytocsv(normalizing(rread), "NSynthetic")
 
-    text_file = open("./sample.txt", "a")
-    n = text_file.write('Welcome to pythonexamples.org')
-    text_file.close()
-    print("Done")
+
     SMOTE(0)
 
 
