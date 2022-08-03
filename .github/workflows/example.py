@@ -607,7 +607,7 @@ def selectvalid(use):
         if(typediff==3):
             return[lastdiffs[2]+10 ,lastdiffs[2]+20]
         if(typediff==0):
-            return[lastdiffs[2]-20,lastdiffs[2]]
+            return[lastdiffs[2]-20,lastdiffs[2]+5]
         if(typediff==1):
             return [lastdiffs[0]-10,lastdiffs[2]]
 
@@ -718,7 +718,7 @@ def SMOTE(SyntSamples=15000):
     copytocsv(normalizing(rread), "NSynthetic")
 
 
-    SMOTE(20000)
+SMOTE(20000)
 
 
 # #print(next([0.819009, 0.822712, 0.875080,
