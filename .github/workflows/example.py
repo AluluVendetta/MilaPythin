@@ -20,7 +20,7 @@ plt.savefig("test.jpg")
 print("test.jpg")
 plt.close()
 
-text_file = open(".github/workflows/sample.txt", "w+")
+text_file = open(".github/workflows/sample.txt", "r+")
 n = text_file.write('Welcome to pythonexamples.org')
 print(text_file.readline())
 
