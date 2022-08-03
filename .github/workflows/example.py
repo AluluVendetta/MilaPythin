@@ -817,8 +817,8 @@ def play_test():
             plt.plot(scores)
             plt.plot(difficulties)
             plt.plot(diffs)
-            plt.savefig(".github/workflows/"+"Game " + gameNames[gameId_order[gameId]]+ ".png")
-            print("Image Saved ? ",os.path.exists(".github/workflows/"+"Game " + gameNames[gameId_order[gameId]]+ ".png"))
+            plt.savefig(".github/workflows/"+"Game " + gameNames[gameId_order[gameId]]+ ".txt")
+            print("Image Saved ? ",os.path.exists(".github/workflows/"+"Game " + gameNames[gameId_order[gameId]]+ ".txt"))
             plt.close()
 
 
