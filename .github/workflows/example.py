@@ -25,6 +25,10 @@ jj.write('Hello World from ' + jj.name)    # Write inside file
 jj.close()
 jj = open('File.txt',"r")
 repo = git.Repo.clone_from('https://github.com/AluluVendetta/MilaPythin', 'Mila')
+print('Remotes:')
+for remote in repo.remotes:
+    print(f'- {remote.name} {remote.url}')
+
 print(jj.read())
 jj.close()
 
