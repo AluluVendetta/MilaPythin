@@ -340,7 +340,7 @@ def score_player(playerId):
     once_adv = []
 
     if (len(zipped) > 0):
-        # print(playerId)
+        # #print(playerId)
         zipped = sorted(zipped, key=lambda x: x[0])
         for x in zipped:
             if (x[2] != None and not ((x[1], x[2], x[3]) in once)):
@@ -485,11 +485,11 @@ def normalizing(y):
         avgscore[gameId_order[int(y[i][11])]]+=float(y[i][9])
         gamelengths[gameId_order[int(y[i][11])]]+=1
     avgscore=[(avgscore[i]/float(gamelengths[i]) -minis[i])/(maxis[i]-minis[i])for i in range(8)]
-    print("minis ",minis)
-    print("maxis ",maxis)
-    print("avgs ",avgscore)
+    #print("minis ",minis)
+    #print("maxis ",maxis)
+    #print("avgs ",avgscore)
     for i in range(8):
-        print([float(y[k][5]) if (int(y[k][11]) == i) else 1 for k in range(len(y))])
+        #print([float(y[k][5]) if (int(y[k][11]) == i) else 1 for k in range(len(y))])
 
 
     for i in range(len(y)):
@@ -504,7 +504,7 @@ def normalizing(y):
 
 # save a dataset as a csv
 def copytocsv(y, name):
-    # print(y[0])
+    # #print(y[0])
 
     with open(name + ".csv", "w", newline="") as g:
         writer = csv.writer(g)
@@ -514,7 +514,7 @@ def copytocsv(y, name):
 
 # create the dataset from the patients inputs
 def createbasecloud():
-    print("reading Patients data")
+    #print("reading Patients data")
     u = []
     for roun in data:
         u += [roun['playerId']]
@@ -523,7 +523,7 @@ def createbasecloud():
     for h in u:
       #  if(int(h)!=55):
         j += 1
-        print("Patient ", j)
+        #print("Patient ", j)
         for i in range(8):
             durations[i] = 0
         for i in range(8):
@@ -613,7 +613,7 @@ def selectvalid(use):
 # Core Function, sklearn library doesn't allow for a customisable distance function, a basic implementation is down
 # the fucntion returns the k closest neighbours in the dataset
 def knn(x, gameId, k=1, wei=[],use = True):
-    print("weight for score ", mean(weights[gameId_order[gameId]])/5.0)
+    #print("weight for score ", mean(weights[gameId_order[gameId]])/5.0)
     wei = [0, 0, 0, 0, mean(weights[gameId_order[gameId]])/5.0]
 
     dist = []
@@ -631,7 +631,7 @@ def knn(x, gameId, k=1, wei=[],use = True):
 
 
         if z['GameId'] == gameId and distance(z[0:10], x[0:10], we) > 1e-9 and selectvalid(use)[0]<z['difficulty']<selectvalid(use)[1]:
-            # print(typediff,oldtype,z['difficulty'],lastdiff)
+            # #print(typediff,oldtype,z['difficulty'],lastdiff)
             dist += [distance(z[0:10], x[0:10], we)]
             #scores += [z['Score']]
             #diffs += [z['difficulty']]
@@ -641,9 +641,9 @@ def knn(x, gameId, k=1, wei=[],use = True):
             vect += [z]
     #coupled = sorted(zip(dist, vect, diffs, scores, adv,playerids,pros), key=lambda s: s[0])
     coupled = sorted(zip(dist, vect), key=lambda s: s[0])
-    #print("distances")
-    #print(sorted(dist)[0:k])
-    #print([[c[2],c[6], c[3], c[4],c[5]] for c in coupled[0:k]])
+    ##print("distances")
+    ##print(sorted(dist)[0:k])
+    ##print([[c[2],c[6], c[3], c[4],c[5]] for c in coupled[0:k]])
     return coupled[0:k]
 
 
@@ -654,7 +654,7 @@ k = 8
 # average of k closest neighbours
 
 def next(profile, difficulty, gameId, error,use=True):
-    #print("k = ", k)
+    ##print("k = ", k)
     u = knn(profile + [difficulty + alpha * error], gameId, k,use)
 
     par = [0] * len(u[0][1][12:24])
@@ -683,23 +683,23 @@ def SMOTE(SyntSamples=15000):
     # rread = readaslist("Unnormalized")
     rread = readaslist("Patients")
 
-    #print("Creating Additional Synthetic data")
-   # print("Starting Smote")
+    ##print("Creating Additional Synthetic data")
+   # #print("Starting Smote")
     if(SyntSamples==0 and os.path.exists('NSynthetic.csv')):
         rread = readaslist('Synthetic')
         copytocsv(rread, "Synthetic")
         copytocsv(normalizing(rread), "NSynthetic")
         return 0
     for j in range(SyntSamples):
-        print("Generating ", j)
+        #print("Generating ", j)
         a = np.random.randint(low=0, high=len(rread))
-        print(a)
+        #print(a)
         gameId = int(rread[a][11])
         u = knn([float(x) for x in rread[a][0:10]], gameId, K_smote,[],False)
         n = np.random.randint(0, K_smote)
         s = float(np.random.randint(0, 1000)) / 1000.0
         chosen = tolisting(u[n][1])
-        print("the chosen ",chosen)
+        #print("the chosen ",chosen)
         new = [s * (chosen[i] - float(rread[a][i])) + float(rread[a][i]) for i in range(10)]
         new += [np.random.randint(100, 200)]
 
@@ -709,7 +709,7 @@ def SMOTE(SyntSamples=15000):
         new += [s * (chosen[25] - float(rread[a][25])) + float(rread[a][25])]
         new[20] = round(new[20])
         new[21] = round(new[21])
-        print("new guy ",new)
+        #print("new guy ",new)
         rread += [new]
     copytocsv(rread, "Synthetic")
     copytocsv(normalizing(rread), "NSynthetic")
@@ -718,7 +718,7 @@ def SMOTE(SyntSamples=15000):
 SMOTE(5000)
 
 
-# print(next([0.819009, 0.822712, 0.875080,
+# #print(next([0.819009, 0.822712, 0.875080,
 #             0.814470,
 #             0.875080,
 #             0.437959,
@@ -735,7 +735,7 @@ def play_test():
     global lastdiffs
     global typediff
     pdf = pd.read_csv('.github/workflows/NSynthetic.csv')
-    print("Virtual Player Testing .. ")
+    #print("Virtual Player Testing .. ")
     gameId = 15
     for gameId in order:
         lastdiff = 0
@@ -761,17 +761,17 @@ def play_test():
                 durations[i] = 0
                 advancements[i] = 0
             for i in range(200):
-                print("level ", i)
+                #print("level ", i)
                 oldtype = typediff
                 difficulty = difficultycurve2(levels,gameId)
 
-                print("Imposing a  difficulty of ", difficulty, "corrected ", difficulty + alpha * error)
+                #print("Imposing a  difficulty of ", difficulty, "corrected ", difficulty + alpha * error)
                 nexty = next(test_player[0], difficulty, gameId, error)
 
                 s = tester(difficulty, n)
                 n += 1
-                print("I suggest ")
-                print([str(a) + " : " + str(b) if isinstance(b, str) or b >= 0 else "" for a, b in
+                #print("I suggest ")
+                #print([str(a) + " : " + str(b) if isinstance(b, str) or b >= 0 else "" for a, b in
                        zip(dataframenames[12:], nexty)])
                 score = s[0]
                 difficulties.append(difficulty)
@@ -779,8 +779,8 @@ def play_test():
                 diffs.append(nexty[0] / 140.0)
                 lastdiff = nexty[0]
                 lastdiffs[typediff]=(lastdiffs[typediff]+3*nexty[0])/4.0
-                print(lastdiffs)
-                # print("you scored ",score)
+                #print(lastdiffs)
+                # #print("you scored ",score)
                 # addtocloud(nexty[0], test_player[0], score, test_player_id, gameId, nexty[-1], nexty[-2])
                 advancements[gameId_order[gameId]] += 1
                 durations[gameId_order[gameId]] += nexty[-1]
@@ -798,12 +798,12 @@ def play_test():
                         test_player[1].append([[s[1], s[0], gameId]])
 
                 error = (levels * error + difficulty - score) / (levels + 1)
-                # print("err ",error)
+                # #print("err ",error)
                 test_player = updateprofile(gameId, test_player)
                 for a, u in zip(range(9), dataframenames[0:9]):
                     test_player[0][a] = clamp(
                         (test_player[0][a] - unnormalized[u].min()) / (unnormalized[u].max() - unnormalized[u].min()), 0, 1)
-                print("new profile : ", test_player[0])
+                #print("new profile : ", test_player[0])
             plt.figure("Score Curve",figsize=(8,6))
             #plt.plot(scores)
             #plt.plot(difficulties)
