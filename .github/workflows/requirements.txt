@@ -4,3 +4,4 @@ gspread
 datetime
 statistics
 pandas
+gitpython

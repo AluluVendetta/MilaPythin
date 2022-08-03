@@ -8,11 +8,13 @@ import numpy as np
 import csv
 import gspread
 import math
+import git
 from datetime import timedelta
 from csv import reader
 import sys
 import re, urllib
 
+git.Repo.clone_from('https://github.com/AluluVendetta/MilaPythin', 'Cookbook-https')
 alpha = 0.5
 
 # Open the googleSheet that specifies difficulty of each sequence
