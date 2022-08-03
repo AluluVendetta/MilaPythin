@@ -15,6 +15,11 @@ import sys
 import re, urllib
 import os
 
+plt.plot([0,1,4,5,6,7,1,1,1,12,3,5,1])
+plt.savefig("test.jpg")
+print("test.jpg")
+plt.close()
+
 text_file = open("./sample.txt", "a")
 n = text_file.write('Welcome to pythonexamples.org')
 text_file.close()
@@ -22,7 +27,7 @@ print("Done")
 
 myrepo = git.Repo.clone_from('https://github.com/AluluVendetta/MilaPythin', 'my_repo')
 # Provide a list of the files to stage
-myrepo.index.add(['sample.txt'])
+myrepo.index.add(['test.jpg'])
 # Provide a commit message
 myrepo.index.commit('Initial commit.')
 alpha = 0.5
