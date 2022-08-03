@@ -1,7 +1,5 @@
 matplotlib
 numpy
-csv 
-json 
 gspread
 datetime
 statistics
