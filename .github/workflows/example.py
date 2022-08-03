@@ -17,10 +17,10 @@ alpha = 0.5
 
 # Open the googleSheet that specifies difficulty of each sequence
 sa = gspread.service_account('.github/workflows/service_account.json')
-sh = sa.open("MilaSongsLevelScaling")
-wk = sh.worksheet('TamTambouille/LianeFolie')
+sh = sa.open(".github/workflows/MilaSongsLevelScaling")
+wk = sh.worksheet('.github/workflows/TamTambouille/LianeFolie')
 wk1 = wk.get_all_values()
-wk = sh.worksheet('VegeBaston')
+wk = sh.worksheet('.github/workflows/VegeBaston')
 wk2 = wk.get_all_values()
 durTamLiane = [wk1[d][29] for d in range(1, 190)]
 durVege = [wk1[d][29] for d in range(1, 190)]
@@ -56,11 +56,11 @@ gameNames = ["VegeBaston", "PotesAuFeu", "Synglab", "Riversplash", "LianeFolie",
 # load sequences and songs
 sequences = []
 for i in range(8):
-    y = open(gameNames[i] + "Sequences.json")
+    y = open('.github/workflows/'+gameNames[i] + "Sequences.json")
     y = json.load(y)
     sequences += [y['sequences']]
 
-songs = json.load(open('MilaSongs.json'))
+songs = json.load(open('.github/workflows/MilaSongs.json'))
 
 # penalty of error
 err_thresh = 0.4;
@@ -459,7 +459,7 @@ def result(difficulty, result):
 # read a dataset as list of lists
 def readaslist(name):
     # read csv file as a list of lists
-    with open(name + '.csv', 'r') as read_obj:
+    with open('.github/workflows/'+name + '.csv', 'r') as read_obj:
         # pass the file object to reader() to get the reader object
         csv_reader = reader(read_obj)
         # Pass reader object to list() to get a list of lists
@@ -539,8 +539,8 @@ def createbasecloud():
 
 # read 2 copies of the patients dataset ( normalized)
 # read an unnormalized version of the patients dataset
-unnormalized = pd.read_csv('Unnormalized.csv')
-patients = pd.read_csv('Patients.csv')
+unnormalized = pd.read_csv('.github/workflows/Unnormalized.csv')
+patients = pd.read_csv('.github/workflows/Patients.csv')
 # read the patients' data + the synthetic ones
 
 
@@ -679,7 +679,7 @@ def SMOTE(SyntSamples=15000):
     maxis= [0]*8
     minis = [1000]*8
     avgscore=[0]*8
-    pdf = pd.read_csv('Patients.csv')
+    pdf = pd.read_csv('.github/workflows/Patients.csv')
     # rread = readaslist("Unnormalized")
     rread = readaslist("Patients")
 
@@ -734,7 +734,7 @@ def play_test():
     global oldtype
     global lastdiffs
     global typediff
-    pdf = pd.read_csv('NSynthetic.csv')
+    pdf = pd.read_csv('.github/workflows/NSynthetic.csv')
     print("Virtual Player Testing .. ")
     gameId = 15
     for gameId in order:
