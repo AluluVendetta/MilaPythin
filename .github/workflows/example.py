@@ -715,7 +715,7 @@ def SMOTE(SyntSamples=15000):
     copytocsv(normalizing(rread), "NSynthetic")
 
 
-SMOTE(5000)
+SMOTE(0)
 
 
 # #print(next([0.819009, 0.822712, 0.875080,
