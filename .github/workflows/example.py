@@ -50,8 +50,8 @@ gameNames = ["VegeBaston", "PotesAuFeu", "Synglab", "Riversplash", "LianeFolie",
 
 # load patientsdata
 
-f = open('Datas.json')
-data = json.load(f)
+#f = open('Datas.json')
+#data = json.load(f)
 
 # load sequences and songs
 sequences = []
