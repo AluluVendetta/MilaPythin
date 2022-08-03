@@ -26,4 +26,5 @@ jobs:
       - run: pip install -r .github/workflows/requirements.txt
       - name: Run a Python script
         run: python .github/workflows/example.py
+      - uses: stefanzweifel/git-auto-commit-action@v4
         
