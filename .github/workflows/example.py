@@ -656,7 +656,7 @@ k = 8
 def next(profile, difficulty, gameId, error,use=True):
     ##print("k = ", k)
     u = knn(profile + [difficulty + alpha * error], gameId, k,use)
-
+    print("Found ",len(u), "Neighbours")
     par = [0] * len(u[0][1][12:24])
     s = sum([1 / (h[0]) for h in u])
     for lev in u:
