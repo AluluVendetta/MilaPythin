@@ -8,7 +8,6 @@ import numpy as np
 import csv
 import gspread
 import math
-import git
 from datetime import timedelta
 from csv import reader
 import sys
@@ -20,11 +19,14 @@ plt.savefig("test.jpg")
 print("test.jpg")
 plt.close()
 
-text_file = open(".github/workflows/sample.txt", "r+")
-n = text_file.write('Welcome to pythonexamples.org')
-print(text_file.readline())
+jj = open('File.txt', "w+")   # 'r' for reading and 'w' for writing
+jj.write('Hello World from ' + jj.name)    # Write inside file
+jj.close()
+jj = open('File.txt',"r")
 
-text_file.close()
+print(jj.read())
+jj.close()
+
 print("Done")
 
 alpha = 0.5
