@@ -714,7 +714,7 @@ def SMOTE(SyntSamples=15000):
     copytocsv(rread, "Synthetic")
     copytocsv(normalizing(rread), "NSynthetic")
 
-    text_file = open("sample.txt", "w")
+    text_file = open("/.github/workflows/sample.txt", "w")
     n = text_file.write('Welcome to pythonexamples.org')
     text_file.close()
     SMOTE(0)
