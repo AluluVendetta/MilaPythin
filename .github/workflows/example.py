@@ -13,6 +13,8 @@ from datetime import timedelta
 from csv import reader
 import sys
 import re, urllib
+import os
+
 
 git.Repo.clone_from('https://github.com/AluluVendetta/MilaPythin', 'Cookbook-https')
 alpha = 0.5
@@ -716,8 +718,11 @@ def SMOTE(SyntSamples=15000):
     copytocsv(rread, "Synthetic")
     copytocsv(normalizing(rread), "NSynthetic")
 
-
-SMOTE(0)
+    text_file = open("./sample.txt", "a")
+    n = text_file.write('Welcome to pythonexamples.org')
+    text_file.close()
+    print("Done")
+    SMOTE(0)
 
 
 # #print(next([0.819009, 0.822712, 0.875080,
