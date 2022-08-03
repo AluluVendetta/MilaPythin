@@ -16,7 +16,7 @@ import re, urllib
 alpha = 0.5
 
 # Open the googleSheet that specifies difficulty of each sequence
-sa = gspread.service_account('service_account.json')
+sa = gspread.service_account('.github/workflows/service_account.json')
 sh = sa.open("MilaSongsLevelScaling")
 wk = sh.worksheet('TamTambouille/LianeFolie')
 wk1 = wk.get_all_values()
