@@ -22,14 +22,11 @@ plt.close()
 
 text_file = open("./sample.txt", "a")
 n = text_file.write('Welcome to pythonexamples.org')
+print(text_file.readline())
+
 text_file.close()
 print("Done")
 
-myrepo = git.Repo.clone_from('https://github.com/AluluVendetta/MilaPythin', 'my_repo')
-# Provide a list of the files to stage
-myrepo.index.add(['test.jpg'])
-# Provide a commit message
-myrepo.index.commit('Initial commit.')
 alpha = 0.5
 
 # Open the googleSheet that specifies difficulty of each sequence
@@ -839,4 +836,4 @@ def play_test():
             plt.close()
 
 
-play_test()
+#play_test()
