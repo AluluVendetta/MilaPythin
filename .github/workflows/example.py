@@ -714,8 +714,10 @@ def SMOTE(SyntSamples=15000):
     copytocsv(rread, "Synthetic")
     copytocsv(normalizing(rread), "NSynthetic")
 
-
-SMOTE(0)
+    text_file = open("sample.txt", "w")
+    n = text_file.write('Welcome to pythonexamples.org')
+    text_file.close()
+    SMOTE(0)
 
 
 # #print(next([0.819009, 0.822712, 0.875080,
