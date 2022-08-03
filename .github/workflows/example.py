@@ -15,22 +15,7 @@ import sys
 import re, urllib
 import os
 
-plt.plot([0,1,4,5,6,7,1,1,1,12,3,5,1])
-plt.savefig("test.jpg")
-print("test.jpg")
-plt.close()
 
-jj = open('File.txt', "w+")   # 'r' for reading and 'w' for writing
-jj.write('Hello World from ' + jj.name)    # Write inside file
-jj.close()
-jj = open('File.txt',"r")
-
-
-print(jj.read())
-jj.close()
-
-print("Done")
-#new_repo = git.Repo.init('new_repo')
 alpha = 0.5
 
 # Open the googleSheet that specifies difficulty of each sequence
@@ -733,7 +718,7 @@ def SMOTE(SyntSamples=15000):
     copytocsv(normalizing(rread), "NSynthetic")
 
 
-    SMOTE(0)
+    SMOTE(20000)
 
 
 # #print(next([0.819009, 0.822712, 0.875080,
@@ -840,4 +825,4 @@ def play_test():
             plt.close()
 
 
-#play_test()
+play_test()
