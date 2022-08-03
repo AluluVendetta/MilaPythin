@@ -683,15 +683,15 @@ def SMOTE(SyntSamples=15000):
     # rread = readaslist("Unnormalized")
     rread = readaslist("Patients")
 
-    ##print("Creating Additional Synthetic data")
-   # #print("Starting Smote")
+    print("Creating Additional Synthetic data")
+    print("Starting Smote")
     if(SyntSamples==0 and os.path.exists('NSynthetic.csv')):
         rread = readaslist('Synthetic')
         copytocsv(rread, "Synthetic")
         copytocsv(normalizing(rread), "NSynthetic")
         return 0
     for j in range(SyntSamples):
-        #print("Generating ", j)
+        print("Generating ", j)
         a = np.random.randint(low=0, high=len(rread))
         #print(a)
         gameId = int(rread[a][11])
@@ -735,9 +735,10 @@ def play_test():
     global lastdiffs
     global typediff
     pdf = pd.read_csv('.github/workflows/NSynthetic.csv')
-    #print("Virtual Player Testing .. ")
+    print("Virtual Player Testing .. ")
     gameId = 15
     for gameId in order:
+        print("Game",  gameNames[gameId_order[gameId]])
         lastdiff = 0
         oldtype = 0
         typediff = 2
@@ -761,17 +762,16 @@ def play_test():
                 durations[i] = 0
                 advancements[i] = 0
             for i in range(200):
-                #print("level ", i)
+                print("level ", i)
                 oldtype = typediff
                 difficulty = difficultycurve2(levels,gameId)
 
-                #print("Imposing a  difficulty of ", difficulty, "corrected ", difficulty + alpha * error)
+                print("Imposing a  difficulty of ", difficulty, "corrected ", difficulty + alpha * error)
                 nexty = next(test_player[0], difficulty, gameId, error)
 
                 s = tester(difficulty, n)
                 n += 1
-                #print("I suggest ")
-                #print([str(a) + " : " + str(b) if isinstance(b, str) or b >= 0 else "" for a, b in
+                print("I suggest ",[str(a) + " : " + str(b) if isinstance(b, str) or b >= 0 else "" for a, b in
                        zip(dataframenames[12:], nexty)])
                 score = s[0]
                 difficulties.append(difficulty)
