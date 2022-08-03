@@ -488,7 +488,7 @@ def normalizing(y):
     #print("minis ",minis)
     #print("maxis ",maxis)
     #print("avgs ",avgscore)
-    for i in range(8):
+    #for i in range(8):
         #print([float(y[k][5]) if (int(y[k][11]) == i) else 1 for k in range(len(y))])
 
 
