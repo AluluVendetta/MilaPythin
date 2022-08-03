@@ -7,6 +7,7 @@ import datetime
 import numpy as np
 import csv
 import gspread
+import git
 import math
 from datetime import timedelta
 from csv import reader
@@ -23,12 +24,12 @@ jj = open('File.txt', "w+")   # 'r' for reading and 'w' for writing
 jj.write('Hello World from ' + jj.name)    # Write inside file
 jj.close()
 jj = open('File.txt',"r")
-
+repo = git.Repo.clone_from('https://github.com/AluluVendetta/MilaPythin', 'Mila')
 print(jj.read())
 jj.close()
 
 print("Done")
-
+repo.remotes.origin.push()
 alpha = 0.5
 
 # Open the googleSheet that specifies difficulty of each sequence
