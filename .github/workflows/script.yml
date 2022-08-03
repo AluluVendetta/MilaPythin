@@ -18,8 +18,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      - uses: actions/setup-python@v4
       # Runs a single command using the runners shell
+        with:
+          python-version: '3.9'
+          cache: 'pip' # caching pip dependencies
+      - run: pip install -r .github/workflows/requirements.txt
       - name: Run a Python script
         run: python .github/workflows/example.py
         
