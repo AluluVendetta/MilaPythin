@@ -17,8 +17,8 @@ alpha = 0.5
 
 # Open the googleSheet that specifies difficulty of each sequence
 sa = gspread.service_account('.github/workflows/service_account.json')
-sh = sa.open(".github/workflows/MilaSongsLevelScaling")
-wk = sh.worksheet('.github/workflows/TamTambouille/LianeFolie')
+sh = sa.open("MilaSongsLevelScaling")
+wk = sh.worksheet('TamTambouille/LianeFolie')
 wk1 = wk.get_all_values()
 wk = sh.worksheet('.github/workflows/VegeBaston')
 wk2 = wk.get_all_values()
