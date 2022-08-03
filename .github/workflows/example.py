@@ -24,7 +24,7 @@ jj = open('File.txt', "w+")   # 'r' for reading and 'w' for writing
 jj.write('Hello World from ' + jj.name)    # Write inside file
 jj.close()
 jj = open('File.txt',"r")
-repo = git.Repo('/home/runner/work/MilaPythin', 'Mila')
+repo = git.Repo('/home/runner/work/MilaPythin', search_parent_directories=True)
 print('Remotes:')
 for remote in repo.remotes:
     print(f'- {remote.name} {remote.url}')
