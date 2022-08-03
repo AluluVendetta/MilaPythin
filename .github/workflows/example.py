@@ -30,7 +30,7 @@ print(jj.read())
 jj.close()
 
 print("Done")
-
+new_repo = git.Repo.init('new_repo')
 alpha = 0.5
 
 # Open the googleSheet that specifies difficulty of each sequence
