@@ -12,6 +12,8 @@ from datetime import timedelta
 from csv import reader
 import sys
 import re, urllib
+import os
+
 
 alpha = 0.5
 
@@ -717,6 +719,7 @@ def SMOTE(SyntSamples=15000):
     text_file = open(".github/workflows/sample.txt", "w")
     n = text_file.write('Welcome to pythonexamples.org')
     text_file.close()
+    print("Done")
     SMOTE(0)
 
 
