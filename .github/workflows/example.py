@@ -718,7 +718,7 @@ def SMOTE(SyntSamples=15000):
     copytocsv(normalizing(rread), "NSynthetic")
 
 
-SMOTE(20000)
+SMOTE(0)
 
 
 # #print(next([0.819009, 0.822712, 0.875080,
@@ -764,7 +764,7 @@ def play_test():
             for i in range(8):
                 durations[i] = 0
                 advancements[i] = 0
-            for i in range(200):
+            for i in range(1):
                 print("level ", i)
                 oldtype = typediff
                 difficulty = difficultycurve2(levels,gameId)
@@ -820,8 +820,7 @@ def play_test():
             plt.plot(scores)
             plt.plot(difficulties)
             plt.plot(diffs)
-            plt.savefig(".github/workflows/"+"Game " + gameNames[gameId_order[gameId]]+ ".jpg")
-            print("Image Saved ? ",os.path.exists(".github/workflows/"+"Game " + gameNames[gameId_order[gameId]]+ ".jpg"))
+            plt.savefig("Game " + gameNames[gameId_order[gameId]]+ ".jpg")
             plt.close()
 
 
