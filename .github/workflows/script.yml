@@ -26,6 +26,9 @@ jobs:
       - run: pip install -r .github/workflows/requirements.txt
       - name: Run a Python script
       - run: python .github/workflows/example.py
+  push:
+    runs-on: ubuntu-latest
+    steps:
       - uses: stefanzweifel/git-auto-commit-action@v4
 
         
