@@ -1,7 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
 name: PythonScript
-
+  Username: AluluVendetta
+  Password: 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
 # Controls when the workflow will run
 on:
   # Allows you to run this workflow manually from the Actions tab
